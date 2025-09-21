@@ -47,16 +47,29 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        portfolio: {
+          dark: "hsl(var(--portfolio-dark))",
+          darker: "hsl(var(--portfolio-darker))",
+          card: "hsl(var(--portfolio-card))",
+          orange: "hsl(var(--portfolio-orange))",
+          "orange-hover": "hsl(var(--portfolio-orange-hover))",
+          "text-primary": "hsl(var(--portfolio-text-primary))",
+          "text-secondary": "hsl(var(--portfolio-text-secondary))",
+          "text-muted": "hsl(var(--portfolio-text-muted))",
+          border: "hsl(var(--portfolio-border))",
+          success: "hsl(var(--portfolio-success))",
         },
+      },
+      backgroundImage: {
+        "gradient-orange": "var(--gradient-orange)",
+        "gradient-dark": "var(--gradient-dark)",
+      },
+      boxShadow: {
+        glow: "var(--shadow-glow)",
+        "card-hover": "var(--shadow-card)",
+      },
+      transitionProperty: {
+        smooth: "var(--transition-smooth)",
       },
       borderRadius: {
         lg: "var(--radius)",
