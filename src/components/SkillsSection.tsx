@@ -5,18 +5,18 @@ import { Badge } from "@/components/ui/badge";
 const SkillsSection = () => {
   const programmingLanguages = [
     { name: "Java", level: 90 },
-    { name: "Python", level: 85 },
-    { name: "JavaScript", level: 80 },
-    { name: "HTML/CSS", level: 85 },
-    { name: "SQL", level: 75 },
+    { name: "Python", level: 95 },
+    { name: "JavaScript", level: 88 },
+    { name: "C", level: 80 },
+    { name: "SQL", level: 85 },
   ];
 
   const toolsPlatforms = [
-    { name: "GitHub", level: 85 },
-    { name: "Figma", level: 70 },
-    { name: "PyTorch", level: 75 },
-    { name: "Flask", level: 80 },
-    { name: "NLTK", level: 70 },
+    { name: "GitHub", level: 90 },
+    { name: "Figma", level: 78 },
+    { name: "HTML", level: 90 },
+    { name: "CSS", level: 88 },
+    { name: "Flask", level: 85 },
   ];
 
   const coreExpertise = [
@@ -36,9 +36,9 @@ const SkillsSection = () => {
   ];
 
   const technologies = [
-    "React", "Node.js", "Python", "Java", "JavaScript", "TypeScript",
-    "MongoDB", "PostgreSQL", "Git", "Docker", "AWS", "Firebase",
-    "TensorFlow", "PyTorch", "Flask", "Express.js", "Tailwind CSS", "Next.js"
+    "C", "Figma", "SQL", "GitHub", "HTML", "CSS", "JavaScript", "Python", 
+    "Java", "Git", "AWS", "Firebase", "TensorFlow", "PyTorch", "Flask", 
+    "Tailwind CSS", "Spring Boot", "NLTK"
   ];
 
   const SkillCategory = ({ title, skills }: { title: string; skills: { name: string; level: number }[] }) => (

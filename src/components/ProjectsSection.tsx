@@ -18,7 +18,7 @@ const ProjectsSection = () => {
       technologies: ["Python", "Scikit-learn", "Pandas", "Natural Language Processing", "NLTK"],
       status: "Completed",
       links: {
-        github: "#",
+        github: "https://github.com/Gokul2027/Hospital-Email-Classifier",
         demo: "#"
       }
     },
@@ -35,7 +35,7 @@ const ProjectsSection = () => {
       technologies: ["Python", "PyTorch", "Flask", "NLTK", "Deep Learning", "REST API"],
       status: "Completed",
       links: {
-        github: "#",
+        github: "https://github.com/Gokul2027/NLP-Conversational-Chatbot",
         demo: "#"
       }
     },
@@ -52,7 +52,7 @@ const ProjectsSection = () => {
       technologies: ["JavaScript", "HTML/CSS", "Node.js", "MongoDB", "Express.js"],
       status: "Completed",
       links: {
-        github: "#",
+        github: "https://github.com/Gokul2027/Sports-Registration-Portal",
         demo: "#"
       }
     },
@@ -69,7 +69,7 @@ const ProjectsSection = () => {
       technologies: ["React", "Node.js", "PostgreSQL", "Express.js", "CSS3"],
       status: "Completed",
       links: {
-        github: "#",
+        github: "https://github.com/Gokul2027/eBook-Management-System",
         demo: "#"
       }
     },
@@ -86,7 +86,7 @@ const ProjectsSection = () => {
       technologies: ["Java", "Spring Boot", "MySQL", "HTML/CSS", "JavaScript"],
       status: "Completed",
       links: {
-        github: "#",
+        github: "https://github.com/Gokul2027/Hospital-Appointment-System",
         demo: "#"
       }
     },
@@ -103,7 +103,41 @@ const ProjectsSection = () => {
       technologies: ["WordPress", "PHP", "MySQL", "CSS3", "JavaScript"],
       status: "Live",
       links: {
-        github: "#",
+        github: "https://github.com/Gokul2027/NGO-Website",
+        demo: "https://gokul2027.neocities.org/Lions%20Club/"
+      }
+    },
+    {
+      title: "AI Phishing Detection Extension",
+      category: "AI/ML",
+      date: "November 2024",
+      description: "Developed an AI-powered browser extension that detects phishing websites in real-time using machine learning algorithms and URL analysis to protect users from malicious websites.",
+      features: [
+        "Real-time phishing detection",
+        "Machine learning classification",
+        "Browser extension integration"
+      ],
+      technologies: ["Python", "Machine Learning", "JavaScript", "Chrome Extension API", "Scikit-learn"],
+      status: "Completed",
+      links: {
+        github: "https://github.com/Gokul2027/AI-Phishing-Detection-Extension",
+        demo: "#"
+      }
+    },
+    {
+      title: "EBE Foundation Website",
+      category: "Web Development",
+      date: "September 2024",
+      description: "Professional website for EBE Foundation, a construction company, featuring modern design, service showcases, project portfolios, and client testimonials with responsive layout.",
+      features: [
+        "Modern responsive design",
+        "Service portfolio showcase",
+        "Client testimonial system"
+      ],
+      technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP"],
+      status: "Completed",
+      links: {
+        github: "https://github.com/Gokul2027/Ebe-Foundation",
         demo: "#"
       }
     }
@@ -204,25 +238,37 @@ const ProjectsSection = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-3">
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="border-portfolio-border text-portfolio-text-secondary hover:border-portfolio-orange hover:text-portfolio-orange"
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                    {project.status === "Live" && (
-                      <Button 
-                        size="sm"
-                        className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View Live
-                      </Button>
-                    )}
-                  </div>
+                   <div className="flex gap-3">
+                     <a
+                       href={project.links.github}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                     >
+                       <Button 
+                         variant="outline" 
+                         size="sm"
+                         className="border-portfolio-border text-portfolio-text-secondary hover:border-portfolio-orange hover:text-portfolio-orange"
+                       >
+                         <Github className="w-4 h-4 mr-2" />
+                         Code
+                       </Button>
+                     </a>
+                     {project.status === "Live" && (
+                       <a
+                         href={project.links.demo}
+                         target="_blank"
+                         rel="noopener noreferrer"
+                       >
+                         <Button 
+                           size="sm"
+                           className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark"
+                         >
+                           <ExternalLink className="w-4 h-4 mr-2" />
+                           View Live
+                         </Button>
+                       </a>
+                     )}
+                   </div>
                 </CardContent>
               </Card>
             ))}
@@ -232,12 +278,18 @@ const ProjectsSection = () => {
             <p className="text-portfolio-text-secondary mb-6">
               Want to see more projects and contributions?
             </p>
-            <Button 
-              className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold"
+            <a
+              href="https://github.com/Gokul2027"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Github className="w-4 h-4 mr-2" />
-              View All Projects on GitHub
-            </Button>
+              <Button 
+                className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold"
+              >
+                <Github className="w-4 h-4 mr-2" />
+                View All Projects on GitHub
+              </Button>
+            </a>
           </div>
         </div>
       </div>

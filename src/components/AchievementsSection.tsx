@@ -74,6 +74,22 @@ const AchievementsSection = () => {
       type: "Training Certificate",
       description: "Comprehensive web development training covering frontend and backend technologies, frameworks, and deployment.",
       verified: true
+    },
+    {
+      title: "Python for Data Science, AI & Development",
+      year: "2024",
+      issuer: "Coursera",
+      type: "Course Certificate",
+      description: "Comprehensive Python programming course focused on data science applications, AI development, and practical machine learning implementations.",
+      verified: true
+    },
+    {
+      title: "Introduction to Cloud Computing",
+      year: "2024",
+      issuer: "Coursera",
+      type: "Course Certificate",
+      description: "Foundational course covering cloud computing concepts, services, deployment models, and practical cloud platform usage.",
+      verified: true
     }
   ];
 
@@ -81,7 +97,7 @@ const AchievementsSection = () => {
     { label: "CGPA", value: "9.8/10", description: "Academic Excellence" },
     { label: "Projects", value: "6+", description: "Completed Projects" },
     { label: "Hackathons", value: "3", description: "Participated" },
-    { label: "Certificates", value: "4", description: "Professional Certifications" }
+    { label: "Certificates", value: "6", description: "Professional Certifications" }
   ];
 
   return (
@@ -143,9 +159,18 @@ const AchievementsSection = () => {
                       </div>
                     </div>
 
-                    <h4 className="text-lg font-bold text-portfolio-text-primary mb-2 group-hover:text-portfolio-orange transition-colors">
-                      {achievement.title}
-                    </h4>
+                    <a
+                      href={achievement.title === "V-Medithon Participation" ? "https://drive.google.com/file/d/1N0E9BMzNzvwSc7hkfkHaMct4-yQQUqVU/view" : 
+                            achievement.title === "NeXathon Participant" ? "https://drive.google.com/file/d/1N-HOQnVEYKdh5a49cFZ1gIfS9mtqZCuP/view" :
+                            achievement.title === "Hackerz Thiruvizha" ? "https://drive.google.com/file/d/1My_0NyuaiHT2UrO6hBOJ9oyEXNMbNiNY/view" : "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block"
+                    >
+                      <h4 className="text-lg font-bold text-portfolio-text-primary mb-2 group-hover:text-portfolio-orange transition-colors cursor-pointer">
+                        {achievement.title}
+                      </h4>
+                    </a>
 
                     <Badge className="bg-portfolio-orange/10 text-portfolio-orange border-portfolio-orange/30 mb-3">
                       {achievement.rank}
@@ -187,9 +212,21 @@ const AchievementsSection = () => {
                       </div>
                     </div>
 
-                    <h4 className="text-lg font-bold text-portfolio-text-primary mb-2 group-hover:text-portfolio-orange transition-colors">
-                      {cert.title}
-                    </h4>
+                    <a
+                      href={cert.title === "NPTEL Python Programming" ? "https://archive.nptel.ac.in/content/noc/NOC24/SEM1/Ecertificates/106/noc24-cs57/Course/NPTEL24CS57S85340245030489484.pdf" :
+                            cert.title === "NPTEL Database Management System" ? "https://archive.nptel.ac.in/content/noc/NOC25/SEM1/Ecertificates/106/noc25-cs18/Course/NPTEL25CS18S24330813801277898.pdf" :
+                            cert.title === "Introduction to Software Engineering" ? "https://www.coursera.org/account/accomplishments/verify/7IKXTG9R8CWZ" :
+                            cert.title === "Web Development Training" ? "https://trainings.internshala.com/view_certificate/eisy3n3v48_/hp4byr7uv4a/" :
+                            cert.title === "Python for Data Science, AI & Development" ? "https://www.coursera.org/account/accomplishments/verify/2RS3ULXK6ADN" :
+                            cert.title === "Introduction to Cloud Computing" ? "https://www.coursera.org/account/accomplishments/records/V4P6JVH0PHG9" : "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block"
+                    >
+                      <h4 className="text-lg font-bold text-portfolio-text-primary mb-2 group-hover:text-portfolio-orange transition-colors cursor-pointer">
+                        {cert.title}
+                      </h4>
+                    </a>
 
                     <p className="text-portfolio-orange font-semibold text-sm mb-3">
                       {cert.issuer}

@@ -30,9 +30,12 @@ const HeroSection = () => {
                     Arunachalam
                   </span>
                 </h1>
-                <p className="text-xl text-portfolio-text-secondary">
-                  IT Student | <span className="text-portfolio-text-primary font-semibold">Full-Stack Developer</span>
-                </p>
+                <div className="text-xl text-portfolio-text-secondary flex items-center gap-2 flex-wrap">
+                  <span>IT Student |</span>
+                  <div className="relative">
+                    <span className="typing-text text-portfolio-orange font-semibold">Full-Stack Developer</span>
+                  </div>
+                </div>
               </div>
 
               <p className="text-lg text-portfolio-text-secondary leading-relaxed max-w-xl">

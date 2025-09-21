@@ -94,3 +94,46 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Utility classes for common patterns */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-card-hover {
+  box-shadow: 0 10px 30px -10px rgba(255, 120, 41, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--portfolio-orange)), hsl(var(--portfolio-orange-hover)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typing animation */
+.typing-text {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 4s steps(20, end) infinite;
+}
+
+.typing-text::after {
+  content: '|';
+  position: absolute;
+  right: 0;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  45% { width: 100%; }
+  55% { width: 100%; }
+  100% { width: 0; }
+}
+
+@keyframes blink-caret {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}

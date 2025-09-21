@@ -41,10 +41,16 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
-            <Button variant="default" className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold">
-              <Download className="w-4 h-4 mr-2" />
-              Resume
-            </Button>
+            <a
+              href="https://drive.google.com/file/d/1AXQmM2IZCr16UFa1AMaZsY0TXa9WhVBf/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="default" className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold">
+                <Download className="w-4 h-4 mr-2" />
+                Resume
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,10 +74,17 @@ const Header = () => {
                     {item.name}
                   </button>
                 ))}
-                <Button variant="default" className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold w-full">
-                  <Download className="w-4 h-4 mr-2" />
-                  Resume
-                </Button>
+                <a
+                  href="https://drive.google.com/file/d/1AXQmM2IZCr16UFa1AMaZsY0TXa9WhVBf/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  <Button variant="default" className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold w-full">
+                    <Download className="w-4 h-4 mr-2" />
+                    Resume
+                  </Button>
+                </a>
               </div>
             </div>
           )}

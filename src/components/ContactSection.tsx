@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, Github, Linkedin, Clock, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +14,9 @@ const ContactSection = () => {
     subject: "",
     message: ""
   });
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const form = useRef<HTMLFormElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,14 +26,35 @@ const ContactSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon!",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsLoading(true);
+    
+    try {
+      if (form.current) {
+        await emailjs.sendForm(
+          'service_5zpamg6', // Service ID
+          'template_3cpzlek', // Template ID
+          form.current,
+          'eoW-TxYMYIw5LB5Rm' // Public Key
+        );
+        
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon!",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      }
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const contactInfo = [
@@ -180,9 +204,9 @@ const ContactSection = () => {
                 Have a project in mind or want to collaborate? Drop me a message and let's create something amazing together.
               </p>
 
-              <Card className="bg-portfolio-card border-portfolio-border">
-                <CardContent className="p-6">
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                <Card className="bg-portfolio-card border-portfolio-border">
+                  <CardContent className="p-6">
+                    <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label className="text-portfolio-text-primary font-medium mb-2 block">
@@ -241,13 +265,14 @@ const ContactSection = () => {
                       />
                     </div>
 
-                    <Button 
-                      type="submit"
-                      className="w-full bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold"
-                    >
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
-                    </Button>
+                      <Button 
+                        type="submit"
+                        disabled={isLoading}
+                        className="w-full bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold disabled:opacity-50"
+                      >
+                        <Send className="w-4 h-4 mr-2" />
+                        {isLoading ? "Sending..." : "Send Message"}
+                      </Button>
                   </form>
                 </CardContent>
               </Card>
