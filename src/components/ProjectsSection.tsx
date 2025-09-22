@@ -170,67 +170,78 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-portfolio-darker">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-portfolio-text-primary mb-4">
-              Featured Projects
+    <section id="projects" className="py-24 bg-portfolio-darker relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-15"></div>
+      <div className="absolute top-32 left-10 w-96 h-96 bg-portfolio-orange/5 rounded-full blur-3xl animate-float"></div>
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-portfolio-purple/5 rounded-full blur-3xl animate-float" style={{animationDelay: "3s"}}></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20 animate-fade-in">
+            <h2 className="text-5xl md:text-6xl font-bold text-portfolio-text-primary mb-6 text-shadow-lg">
+              Featured <span className="gradient-text">Projects</span>
             </h2>
-            <p className="text-xl text-portfolio-text-secondary max-w-3xl mx-auto">
-              A showcase of my technical projects spanning machine learning, web development, and AI applications. 
-              Each project demonstrates practical problem-solving and innovation.
+            <p className="text-2xl text-portfolio-text-secondary max-w-4xl mx-auto leading-relaxed font-medium">
+              A comprehensive showcase of my technical projects spanning machine learning, web development, and AI applications. 
+              Each project demonstrates innovative problem-solving and cutting-edge technology implementation.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid lg:grid-cols-2 gap-10 mb-16">
             {projects.map((project, index) => (
-              <Card key={index} className="bg-portfolio-card border-portfolio-border hover:shadow-card-hover transition-all duration-300 group">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex flex-wrap gap-2">
-                      <Badge className={getCategoryColor(project.category)}>
+              <Card key={index} className="bg-gradient-card border-2 border-portfolio-border hover:border-portfolio-orange/50 hover:shadow-glow-lg transition-all duration-500 group hover-lift">
+                <CardContent className="p-8">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex flex-wrap gap-3">
+                      <Badge className={`${getCategoryColor(project.category)} px-4 py-2 text-sm font-semibold rounded-xl`}>
                         {project.category}
                       </Badge>
-                      <Badge className={getStatusColor(project.status)}>
-                        <CheckCircle className="w-3 h-3 mr-1" />
+                      <Badge className={`${getStatusColor(project.status)} px-4 py-2 text-sm font-semibold rounded-xl`}>
+                        <CheckCircle className="w-4 h-4 mr-2" />
                         {project.status}
                       </Badge>
                     </div>
-                    <div className="flex items-center text-portfolio-text-muted text-sm">
-                      <Calendar className="w-4 h-4 mr-1" />
+                    <div className="flex items-center text-portfolio-text-muted text-sm font-medium bg-portfolio-card px-3 py-2 rounded-lg">
+                      <Calendar className="w-4 h-4 mr-2" />
                       {project.date}
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-portfolio-text-primary mb-3 group-hover:text-portfolio-orange transition-colors">
+                  <h3 className="text-2xl font-bold text-portfolio-text-primary mb-4 group-hover:gradient-text transition-all duration-300">
                     {project.title}
                   </h3>
 
-                  <p className="text-portfolio-text-secondary mb-4 leading-relaxed">
+                  <p className="text-portfolio-text-secondary mb-6 leading-relaxed text-lg">
                     {project.description}
                   </p>
 
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-portfolio-text-primary mb-2">Key Features</h4>
-                    <ul className="space-y-1">
+                  <div className="mb-6">
+                    <h4 className="text-lg font-bold text-portfolio-text-primary mb-4 flex items-center">
+                      <span className="w-2 h-6 bg-gradient-primary rounded-full mr-3"></span>
+                      Key Features
+                    </h4>
+                    <ul className="space-y-3">
                       {project.features.map((feature, idx) => (
-                        <li key={idx} className="text-sm text-portfolio-text-secondary flex items-center">
-                          <span className="w-1.5 h-1.5 bg-portfolio-orange rounded-full mr-2"></span>
+                        <li key={idx} className="text-portfolio-text-secondary flex items-center text-base">
+                          <span className="w-2 h-2 bg-portfolio-orange rounded-full mr-4 shadow-glow"></span>
                           {feature}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-portfolio-text-primary mb-2">Technologies</h4>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="mb-8">
+                    <h4 className="text-lg font-bold text-portfolio-text-primary mb-4 flex items-center">
+                      <span className="w-2 h-6 bg-gradient-blue rounded-full mr-3"></span>
+                      Technologies
+                    </h4>
+                    <div className="flex flex-wrap gap-3">
                       {project.technologies.map((tech, idx) => (
                         <Badge 
                           key={idx}
                           variant="outline" 
-                          className="text-xs border-portfolio-border text-portfolio-text-muted hover:border-portfolio-orange hover:text-portfolio-orange transition-colors"
+                          className="border-portfolio-border text-portfolio-text-muted hover:border-portfolio-orange hover:text-portfolio-orange hover:bg-portfolio-orange/10 transition-all duration-300 px-3 py-2 rounded-lg font-medium"
                         >
                           {tech}
                         </Badge>
@@ -238,19 +249,20 @@ const ProjectsSection = () => {
                     </div>
                   </div>
 
-                   <div className="flex gap-3">
+                   <div className="flex gap-4">
                      <a
                        href={project.links.github}
                        target="_blank"
                        rel="noopener noreferrer"
+                       className="flex-1"
                      >
                        <Button 
                          variant="outline" 
-                         size="sm"
-                         className="border-portfolio-border text-portfolio-text-secondary hover:border-portfolio-orange hover:text-portfolio-orange"
+                         size="lg"
+                         className="w-full border-2 border-portfolio-border text-portfolio-text-secondary hover:border-portfolio-orange hover:text-portfolio-orange hover:bg-portfolio-orange/10 transition-all duration-300 rounded-xl font-semibold"
                        >
-                         <Github className="w-4 h-4 mr-2" />
-                         Code
+                         <Github className="w-5 h-5 mr-3" />
+                         View Code
                        </Button>
                      </a>
                      {project.status === "Live" && (
@@ -258,12 +270,13 @@ const ProjectsSection = () => {
                          href={project.links.demo}
                          target="_blank"
                          rel="noopener noreferrer"
+                         className="flex-1"
                        >
                          <Button 
-                           size="sm"
-                           className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark"
+                           size="lg"
+                           className="w-full bg-gradient-primary hover:shadow-glow text-portfolio-dark font-bold rounded-xl transition-all duration-300 hover-lift"
                          >
-                           <ExternalLink className="w-4 h-4 mr-2" />
+                           <ExternalLink className="w-5 h-5 mr-3" />
                            View Live
                          </Button>
                        </a>
@@ -274,9 +287,9 @@ const ProjectsSection = () => {
             ))}
           </div>
 
-          <div className="text-center">
-            <p className="text-portfolio-text-secondary mb-6">
-              Want to see more projects and contributions?
+          <div className="text-center animate-fade-in">
+            <p className="text-xl text-portfolio-text-secondary mb-8 font-medium">
+              Want to explore more projects and open-source contributions?
             </p>
             <a
               href="https://github.com/Gokul2027"
@@ -284,10 +297,11 @@ const ProjectsSection = () => {
               rel="noopener noreferrer"
             >
               <Button 
-                className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold"
+                size="lg"
+                className="bg-gradient-primary hover:shadow-glow-lg text-portfolio-dark font-bold px-10 py-4 text-lg rounded-xl transition-all duration-300 hover-lift"
               >
-                <Github className="w-4 h-4 mr-2" />
-                View All Projects on GitHub
+                <Github className="w-6 h-6 mr-3" />
+                Explore GitHub Portfolio
               </Button>
             </a>
           </div>

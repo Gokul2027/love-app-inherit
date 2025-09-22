@@ -41,64 +41,95 @@ const SkillsSection = () => {
     "Tailwind CSS", "NLTK"
   ];
 
-  const SkillCategory = ({ title, skills }: { title: string; skills: { name: string; level: number }[] }) => (
-    <Card className="bg-portfolio-card border-portfolio-border">
-      <CardContent className="p-6">
-        <h3 className="text-xl font-bold text-portfolio-text-primary mb-6">{title}</h3>
-        <div className="space-y-4">
-          {skills.map((skill) => (
-            <div key={skill.name}>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-portfolio-text-secondary font-medium">{skill.name}</span>
-                <span className="text-portfolio-orange font-bold">{skill.level}%</span>
+  const SkillCategory = ({ title, skills, index }: { title: string; skills: { name: string; level: number }[]; index: number }) => {
+    const gradients = [
+      "bg-gradient-primary",
+      "bg-gradient-purple", 
+      "bg-gradient-blue",
+      "bg-portfolio-green"
+    ];
+    
+    const gradientClass = gradients[index % gradients.length];
+    
+    return (
+      <Card className="bg-gradient-card border-portfolio-border hover:border-portfolio-orange/50 transition-all duration-500 hover-lift group">
+        <CardContent className="p-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className={`w-3 h-8 ${gradientClass} rounded-full`}></div>
+            <h3 className="text-2xl font-bold text-portfolio-text-primary group-hover:text-portfolio-orange transition-colors duration-300">{title}</h3>
+          </div>
+          <div className="space-y-6">
+            {skills.map((skill, skillIndex) => (
+              <div key={skill.name} className="group/skill">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-portfolio-text-secondary font-semibold text-lg group-hover/skill:text-portfolio-text-primary transition-colors">{skill.name}</span>
+                  <span className="text-portfolio-orange font-bold text-lg px-3 py-1 bg-portfolio-orange/10 rounded-lg">{skill.level}%</span>
+                </div>
+                <div className="relative">
+                  <div className="h-3 bg-portfolio-darker rounded-full overflow-hidden">
+                    <div 
+                      className={`h-full ${gradientClass} rounded-full transition-all duration-1000 ease-out shadow-glow`}
+                      style={{ 
+                        width: `${skill.level}%`,
+                        animationDelay: `${skillIndex * 0.1}s`
+                      }}
+                    ></div>
+                  </div>
+                </div>
               </div>
-              <Progress 
-                value={skill.level} 
-                className="h-2 bg-portfolio-darker"
-                style={{
-                  '--progress-foreground': 'hsl(var(--portfolio-orange))'
-                } as React.CSSProperties}
-              />
-            </div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
-  );
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    );
+  };
 
   return (
-    <section id="skills" className="py-20 bg-portfolio-dark">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-portfolio-text-primary mb-4">
-              Skills & Expertise
+    <section id="skills" className="py-24 bg-portfolio-dark relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-mesh opacity-20"></div>
+      <div className="absolute top-20 right-20 w-96 h-96 bg-portfolio-purple/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-portfolio-blue/5 rounded-full blur-3xl"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20 animate-fade-in">
+            <h2 className="text-5xl md:text-6xl font-bold text-portfolio-text-primary mb-6 text-shadow-lg">
+              Skills & <span className="gradient-text">Expertise</span>
             </h2>
-            <p className="text-xl text-portfolio-text-secondary max-w-3xl mx-auto">
-              A comprehensive overview of my technical skills and expertise across various domains 
-              of software development and technology.
+            <p className="text-2xl text-portfolio-text-secondary max-w-4xl mx-auto leading-relaxed font-medium">
+              A comprehensive showcase of my technical prowess and professional skills across various domains 
+              of modern software development and emerging technologies.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <SkillCategory title="Programming Languages" skills={programmingLanguages} />
-            <SkillCategory title="Tools & Platforms" skills={toolsPlatforms} />
-            <SkillCategory title="Core Expertise" skills={coreExpertise} />
-            <SkillCategory title="Soft Skills" skills={softSkills} />
+          <div className="grid md:grid-cols-2 gap-10 mb-16">
+            <SkillCategory title="Programming Languages" skills={programmingLanguages} index={0} />
+            <SkillCategory title="Tools & Platforms" skills={toolsPlatforms} index={1} />
+            <SkillCategory title="Core Expertise" skills={coreExpertise} index={2} />
+            <SkillCategory title="Soft Skills" skills={softSkills} index={3} />
           </div>
 
-          {/* Technology Stack */}
-          <Card className="bg-portfolio-card border-portfolio-border">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-portfolio-text-primary mb-6 text-center">
-                Technology Stack
-              </h3>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {technologies.map((tech) => (
+          {/* Enhanced Technology Stack */}
+          <Card className="bg-gradient-card border-2 border-portfolio-orange/30 hover:border-portfolio-orange/60 transition-all duration-500 hover:shadow-glow-lg">
+            <CardContent className="p-10">
+              <div className="text-center mb-10">
+                <h3 className="text-3xl font-bold gradient-text mb-4 text-shadow">
+                  Technology Stack
+                </h3>
+                <p className="text-portfolio-text-secondary text-lg font-medium">
+                  The powerful tools and technologies I leverage to build exceptional solutions
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-4 justify-center">
+                {technologies.map((tech, index) => (
                   <Badge 
                     key={tech}
                     variant="secondary" 
-                    className="bg-portfolio-orange/10 text-portfolio-orange border-portfolio-orange/30 px-4 py-2 text-sm font-medium hover:bg-portfolio-orange/20 transition-colors"
+                    className="bg-portfolio-orange/15 text-portfolio-orange border-portfolio-orange/40 px-6 py-3 text-base font-semibold hover:bg-portfolio-orange/25 hover:border-portfolio-orange hover:scale-105 transition-all duration-300 rounded-xl shadow-premium hover:shadow-glow cursor-pointer"
+                    style={{
+                      animationDelay: `${index * 0.05}s`
+                    }}
                   >
                     {tech}
                   </Badge>
