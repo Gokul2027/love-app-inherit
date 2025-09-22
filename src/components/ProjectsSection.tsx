@@ -135,10 +135,10 @@ const ProjectsSection = () => {
         "Client testimonial system"
       ],
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "PHP"],
-      status: "Completed",
+      status: "Live",
       links: {
         github: "https://github.com/Gokul2027/Ebe-Foundation",
-        demo: "#"
+        demo: "https://gokul2027.neocities.org/Ebe%20foundation/"
       }
     }
   ];
