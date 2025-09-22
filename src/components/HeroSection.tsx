@@ -97,7 +97,7 @@ const HeroSection = () => {
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-orange rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
               <img
-                src={gokulProfile}
+                src="https://i.postimg.cc/HxcG1BqF/Whats-App-Image-2025-09-21-at-19-24-31-91ec140b.jpg"
                 alt="Gokul Arunachalam - Profile"
                 className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl"
               />
