@@ -37,8 +37,8 @@ const SkillsSection = () => {
 
   const technologies = [
     "C", "Figma", "SQL", "GitHub", "HTML", "CSS", "JavaScript", "Python", 
-    "Java", "Git", "AWS", "PyTorch", "Flask", 
-    "Tailwind CSS", "NLTK"
+    "Java", "Git", "AWS", "Firebase", "TensorFlow", "PyTorch", "Flask", 
+    "Tailwind CSS", "Spring Boot", "NLTK"
   ];
 
   const SkillCategory = ({ title, skills }: { title: string; skills: { name: string; level: number }[] }) => (
