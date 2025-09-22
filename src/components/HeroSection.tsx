@@ -2,8 +2,56 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail, MapPin, ExternalLink } from "lucide-react";
 import gokulProfile from "@/assets/gokul-profile.jpg";
+import { useState, useEffect } from "react";
 
 const HeroSection = () => {
+  const [currentText, setCurrentText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const phrases = [
+    "Full-Stack Developer",
+    "ML Enthusiast", 
+    "Problem Solver",
+    "Tech Innovator"
+  ];
+
+  useEffect(() => {
+    const currentPhrase = phrases[currentIndex];
+    
+    if (isPaused) {
+      const pauseTimer = setTimeout(() => {
+        setIsPaused(false);
+        setIsDeleting(true);
+      }, 2000);
+      return () => clearTimeout(pauseTimer);
+    }
+
+    const typingSpeed = isDeleting ? 100 : 150;
+    
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        // Typing
+        if (currentText.length < currentPhrase.length) {
+          setCurrentText(currentPhrase.slice(0, currentText.length + 1));
+        } else {
+          setIsPaused(true);
+        }
+      } else {
+        // Deleting
+        if (currentText.length > 0) {
+          setCurrentText(currentText.slice(0, -1));
+        } else {
+          setIsDeleting(false);
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [currentText, currentIndex, isDeleting, isPaused, phrases]);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -33,7 +81,10 @@ const HeroSection = () => {
                 <div className="text-xl text-portfolio-text-secondary flex items-center gap-2 flex-wrap">
                   <span>IT Student |</span>
                   <div className="relative">
-                    <span className="typing-text text-portfolio-orange font-semibold">Full-Stack Developer</span>
+                    <span className="text-portfolio-orange font-semibold">
+                      {currentText}
+                      <span className="typewriter-cursor animate-pulse">|</span>
+                    </span>
                   </div>
                 </div>
               </div>
