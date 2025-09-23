@@ -115,17 +115,17 @@ const AchievementsSection = () => {
           </div>
 
           {/* Stats Overview */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-12 sm:mb-16">
             {stats.map((stat, index) => (
-              <Card key={index} className="bg-portfolio-card border-portfolio-border text-center">
-                <CardContent className="p-6">
-                  <div className="text-3xl font-bold text-portfolio-orange mb-2">
+              <Card key={index} className="bg-portfolio-card border-portfolio-border text-center hover:shadow-card-hover transition-all duration-300">
+                <CardContent className="p-3 sm:p-6">
+                  <div className="text-2xl sm:text-3xl font-bold text-portfolio-orange mb-1 sm:mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-sm font-semibold text-portfolio-text-primary mb-1">
+                  <div className="text-xs sm:text-sm font-semibold text-portfolio-text-primary mb-1">
                     {stat.label}
                   </div>
-                  <div className="text-xs text-portfolio-text-muted">
+                  <div className="text-xs text-portfolio-text-muted hidden sm:block">
                     {stat.description}
                   </div>
                 </CardContent>
@@ -138,7 +138,7 @@ const AchievementsSection = () => {
             <h3 className="text-2xl font-bold text-portfolio-text-primary mb-8 text-center">
               Achievements & Competitions
             </h3>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {achievements.map((achievement, index) => (
                 <Card key={index} className="bg-portfolio-card border-portfolio-border hover:shadow-card-hover transition-all duration-300 group">
                   <CardContent className="p-6">
@@ -190,7 +190,7 @@ const AchievementsSection = () => {
             <h3 className="text-2xl font-bold text-portfolio-text-primary mb-8 text-center">
               Certifications & Training
             </h3>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               {certifications.map((cert, index) => (
                 <Card key={index} className="bg-portfolio-card border-portfolio-border hover:shadow-card-hover transition-all duration-300 group">
                   <CardContent className="p-6">

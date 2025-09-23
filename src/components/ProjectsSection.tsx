@@ -188,7 +188,7 @@ const ProjectsSection = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-10 mb-16">
+          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mb-12 sm:mb-16">
             {projects.map((project, index) => (
               <Card key={index} className="bg-gradient-card border-2 border-portfolio-border hover:border-portfolio-orange/50 hover:shadow-glow-lg transition-all duration-500 group hover-lift">
                 <CardContent className="p-8">

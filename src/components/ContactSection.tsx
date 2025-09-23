@@ -110,9 +110,9 @@ const ContactSection = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
               <h3 className="text-2xl font-bold text-portfolio-text-primary mb-6">
                 Contact Information
               </h3>
@@ -196,20 +196,20 @@ const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div>
-              <h3 className="text-2xl font-bold text-portfolio-text-primary mb-6">
+            <div className="order-1 lg:order-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-portfolio-text-primary mb-4 sm:mb-6">
                 Send Me a Message
               </h3>
-              <p className="text-portfolio-text-secondary mb-6">
+              <p className="text-portfolio-text-secondary mb-4 sm:mb-6 text-sm sm:text-base">
                 Have a project in mind or want to collaborate? Drop me a message and let's create something amazing together.
               </p>
 
                 <Card className="bg-portfolio-card border-portfolio-border">
                   <CardContent className="p-6">
                     <form ref={form} onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label className="text-portfolio-text-primary font-medium mb-2 block">
+                        <label className="text-portfolio-text-primary font-medium mb-2 block text-sm sm:text-base">
                           Name *
                         </label>
                         <Input
@@ -217,12 +217,12 @@ const ContactSection = () => {
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          className="bg-portfolio-darker border-portfolio-border text-portfolio-text-primary focus:border-portfolio-orange"
+                          className="bg-portfolio-darker border-portfolio-border text-portfolio-text-primary focus:border-portfolio-orange h-12"
                           placeholder="Your full name"
                         />
                       </div>
                       <div>
-                        <label className="text-portfolio-text-primary font-medium mb-2 block">
+                        <label className="text-portfolio-text-primary font-medium mb-2 block text-sm sm:text-base">
                           Email *
                         </label>
                         <Input
@@ -231,7 +231,7 @@ const ContactSection = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="bg-portfolio-darker border-portfolio-border text-portfolio-text-primary focus:border-portfolio-orange"
+                          className="bg-portfolio-darker border-portfolio-border text-portfolio-text-primary focus:border-portfolio-orange h-12"
                           placeholder="your.email@example.com"
                         />
                       </div>

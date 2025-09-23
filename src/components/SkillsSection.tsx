@@ -103,7 +103,7 @@ const SkillsSection = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-10 mb-16">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mb-12 sm:mb-16">
             <SkillCategory title="Programming Languages" skills={programmingLanguages} index={0} />
             <SkillCategory title="Tools & Platforms" skills={toolsPlatforms} index={1} />
             <SkillCategory title="Core Expertise" skills={coreExpertise} index={2} />

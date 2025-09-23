@@ -64,10 +64,10 @@ const AboutSection = () => {
 
             {/* Educational Journey */}
             <div>
-              <h3 className="text-2xl font-bold text-portfolio-text-primary mb-8 text-center">
+              <h3 className="text-xl sm:text-2xl font-bold text-portfolio-text-primary mb-6 sm:mb-8 text-center">
                 Educational Journey
               </h3>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <Card className="bg-portfolio-card border-portfolio-border">
                   <CardContent className="p-6">
                     <h4 className="text-xl font-bold text-portfolio-text-primary mb-2">

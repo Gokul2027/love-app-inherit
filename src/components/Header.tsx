@@ -63,28 +63,37 @@ const Header = () => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="absolute top-full left-0 right-0 bg-portfolio-dark border-b border-portfolio-border md:hidden">
-              <div className="flex flex-col space-y-4 p-4">
-                {navItems.map((item) => (
+            <div className="absolute top-full left-0 right-0 bg-portfolio-dark/95 backdrop-blur-sm border-b border-portfolio-border md:hidden z-40 shadow-2xl">
+              <div className="flex flex-col space-y-3 p-6">
+                {navItems.map((item, index) => (
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className="text-portfolio-text-secondary hover:text-portfolio-orange transition-colors duration-300 text-left"
+                    className="text-portfolio-text-secondary hover:text-portfolio-orange transition-all duration-300 text-left py-3 px-4 rounded-lg hover:bg-portfolio-card/50 active:scale-95 font-medium"
+                    style={{
+                      animationDelay: `${index * 50}ms`,
+                      animation: "fade-in 0.3s ease-out forwards"
+                    }}
                   >
                     {item.name}
                   </button>
                 ))}
-                <a
-                  href="https://drive.google.com/file/d/1AXQmM2IZCr16UFa1AMaZsY0TXa9WhVBf/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full"
-                >
-                  <Button variant="default" className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold w-full">
-                    <Download className="w-4 h-4 mr-2" />
-                    Resume
-                  </Button>
-                </a>
+                <div className="pt-2">
+                  <a
+                    href="https://drive.google.com/file/d/1AXQmM2IZCr16UFa1AMaZsY0TXa9WhVBf/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full"
+                  >
+                    <Button 
+                      variant="default" 
+                      className="bg-portfolio-orange hover:bg-portfolio-orange-hover text-portfolio-dark font-semibold w-full py-3 px-6 shadow-glow hover:shadow-glow-lg transition-all duration-300 active:scale-95"
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      Resume
+                    </Button>
+                  </a>
+                </div>
               </div>
             </div>
           )}
